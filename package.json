@@ -1,0 +1,24 @@
+{
+  "name": "pixel-sorting",
+  "version": "1.0.0",
+  "description": "Sorting algorithms visualized with HTML canvas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muradkhan101/pixel-sorting.git"
+  },
+  "keywords": [
+    "sort",
+    "canvas",
+    "data-visualization"
+  ],
+  "author": "Murad Khan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muradkhan101/pixel-sorting/issues"
+  },
+  "homepage": "https://github.com/muradkhan101/pixel-sorting#readme"
+}
