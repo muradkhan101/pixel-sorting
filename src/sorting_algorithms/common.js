@@ -10,3 +10,14 @@ export const swapPixel = (array, i1, i2) => {
   }
   return array;
 }
+
+function movePixel(array, initial, end, distance) {
+  let toMove = array.slice(initial, initial + distance);
+  let newArray;
+  if (initial > end) {
+    newArray = [...array.slice(0, end), ...toMove, ...array.slice(end, initial), ...array.slice(initial + distance)];
+  } else {
+    newArray = [...array.slice(0, initial), ...array.slice(initial + distance, end + distance), ...toMove, ...array.slice(end + distance)];
+  }
+  return newArray;
+}
