@@ -21,3 +21,11 @@ function movePixel(array, initial, end, distance) {
   }
   return newArray;
 }
+
+function getPixels(array, i) {
+  return [array[i], array[i + 1], array[i + 2], array[i + 3]]
+}
+
+function floorToFour(num) {
+  return Math.floor(num / 4) * 4;
+}

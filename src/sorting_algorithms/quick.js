@@ -1,11 +1,44 @@
-function quickSort(array, begin = 0, end = array.length - 1) {
-  if (array.length === 1) return array;
-  if (begin < end) {
-    let splitPoint = split(array, begin, end);
-    quickSort(array, begin, splitPoint - 1);
-    quickSort(array, splitPoint + 1, end);
-    return array;
+function quickSortHelper(array, qStack) {
+  if (!qStack) {
+    var qStack = [];
+    let splitPoint = split(array, 0, array.length - 1);
+
+    qStack.push({
+      split: splitPoint,
+      begin: 0,
+      end: splitPoint - 1
+    })
+    qStack.push({
+      split: splitPoint,
+      begin: splitPoint + 1,
+      end: array.length - 1
+    })
   }
+  return quickSort(array, qStack);
+}
+
+function quickSort(array, qStack) {
+  for (let i = qStack.length - 1; i >= 0; --i) {
+    let q = qStack[i];
+    if (q.begin < q.end && q.begin !== q.split && q.end !== q.split) {
+      let splitPoint = split(array, q.begin, q.end);
+
+      qStack.push({
+        split: splitPoint,
+        begin: q.begin,
+        end: splitPoint - 1
+      })
+
+      qStack.push({
+        split: splitPoint,
+        begin: splitPoint + 1,
+        end: q.end
+      })
+    }
+    qStack.splice(i, 1);
+  }
+  if (qStack.length === 0) keepSorting = false;
+  return qStack;
 }
 
 function split(array, start, end) {

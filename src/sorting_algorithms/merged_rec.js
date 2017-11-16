@@ -1,28 +1,11 @@
-function makeMergeStack(array, s = 0, e = array.length - 1, mStack = []) {
+function mergeSort(array, s = 0, e = array.length - 1) {
   if ( s < e) {
     let mid = Math.floor((e + s) / 2);
-    makeMergeStack(array, s, mid, mStack);
-    makeMergeStack(array, mid + 1, e, mStack);
-    mStack.push({
-      start: s,
-      mid: mid,
-      end: e
-    })
+    mergeSort2(array, s, mid);
+    mergeSort2(array, mid + 1, e);
+    merge2(array, s, mid, e);
   }
-  return mStack;
-}
-
-function mergeSort(array, mStack) {
-  let i = loops;
-  while (i-- && keepSorting) {
-    if (mStack.length === 0) {
-      keepSorting = false;
-      break;
-    }
-    let m = mStack[i];
-    merge(array, m.start, m.mid, m.end);
-    mStack.splice(i, 1);
-  }
+  return array;
 }
 
 function mergeSortHelper(array, mStack) {
